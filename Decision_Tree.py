@@ -1,5 +1,6 @@
 import pandas as pd
 import seaborn as sns
+from sklearn.feature_extraction.text import CountVectorizer
 
 iris = sns.load_dataset("iris")
 iris.to_csv("iris.csv", index=False)
@@ -7,6 +8,7 @@ iris.to_csv("iris.csv", index=False)
 
 #Carregar certo dataframe que está em csv
 dataFrame = pd.read_csv("iris.csv")
+dataFrame2 = pd.read_csv("iris.csv")
 
 #imprimir as primeiras linhas de um data set
 print(dataFrame.head())
@@ -34,3 +36,5 @@ dataFrame['species'] = dataFrame['species'].map(dict(zip(categories, range(len(c
 #separar os targets das features, o parâmetro index do drop pode ser 1:colunas ou 0:linhas 
 y = dataFrame['species'].values
 x = dataFrame.drop('species', index=1)
+
+vectorizer = CountVectorizer()
