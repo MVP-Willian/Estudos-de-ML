@@ -35,7 +35,7 @@ dataFrame['species'] = dataFrame['species'].map(dict(zip(categories, range(len(c
 
 #separar os targets das features, o parâmetro index do drop pode ser 1:colunas ou 0:linhas 
 y = dataFrame['species']
-x = dataFrame.drop('species', index=1)
+x = dataFrame.drop(columns='species')
 
 
 #transformar
@@ -49,5 +49,3 @@ vectorizer.fit(x)
 x_transformed = vectorizer.transform(x)
 #ou
 x_transformed = vectorizer.fit_transform(x)
-
-
